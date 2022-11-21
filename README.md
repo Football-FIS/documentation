@@ -18,12 +18,12 @@ Todo el software y/o servicios proporcionados son propiedad de Footmatch S.L. y 
 
 ### Servicio
 
-#### LIMITACIONES
+#### Limitaciones
 
 * Podrá interrumpirse la conexión en caso de que se detecte un uso fraudulento (suplantación de identidad, denegación de servicios...).
 * Solamente se podrá aplicar la compra de un futuro plan.
  
-#### DISPONIBILIDAD
+#### Disponibilidad
 
 Solamente se garantizará operatividad a los planes de pago, incluyendo las siguientes características:
 * Premium: se garantizará una disponibilidad del 95% del tiempo a lo largo de un mes.
