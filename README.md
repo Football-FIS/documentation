@@ -50,6 +50,8 @@ A continuación, se explicará brevemente cada uno de los microservicios que com
 Representa la entidad que gestiona los equipos. Estos permiten realizar operaciones sobre los jugadores, partidos y los estados. Integra la autenticación y autorización en función del plan dado. 
  - **Documentación**: https://github.com/Football-FIS/team-service
  - **API Rest**: https://team-service-danaremar.cloud.okteto.net/api/v1/docs/
+ 
+Dentro del README del proyecto (https://github.com/Football-FIS/team-service/blob/main/README.md) se encuentra información sobre el nivel presentado y las distintas características implementadas, señalando en que partes del código pueden comprobarse.
 
 ### Player
 Representa la entidad que gestiona los jugadores. Además, permitirá el envío de correos electrónicos informativos del partido a los jugadores a modo de recordatorio.
