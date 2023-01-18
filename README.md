@@ -149,10 +149,112 @@ Podrá ponerse en contacto mediante:
 Se podrán establecer cambios en el precio o en los términos / condiciones del servicio, siempre y cuando se envié un correo electrónico indicando los cambios y estos sean publicados.
 
 ## Análisis de capacidad
+En este apartado, se analizará la capacidad del conjunto de los microservicios implementados.
+
+Para ello, se segmentará el proceso en diferentes pasos:
+
+ 1. **Representación de servicios**
+Se representarán los servicios y sus relaciones para visualizar las peticiones que se generan en cada API por cada una de las peticiones del usuario. Esto servirá de ayuda visual para el siguiente paso.
+![MS](images/MS.png)
+
+ 2. **Cálculo peticiones a las APIs / petición del usuario**
+Se determina el número de peticiones a las respectivas APIs para cada petición / acción realizada por el usuario. 
+
+| Caso de uso      | SSO | OW | TW | SG | Total |
+| ---------------- | --- | -- | -- | -- | ----- |
+| Consulta partido | 0   | 1  | 0  | 0  | 1     |
+| Autentificación  | 1   | 0  | 0  | 0  | 1     |
+| Perfil           | 1   | 0  | 0  | 0  | 1     |
+| GET TS           | 1   | 0  | 0  | 0  | 1     |
+| ADD TS           | 1   | 0  | 0  | 0  | 1     |
+| PUT TS           | 1   | 0  | 0  | 0  | 1     |
+| DEL TS           | 1   | 0  | 0  | 0  | 1     |
+| GET PS           | 1   | 0  | 0  | 0  | 1     |
+| ADD PS           | 1   | 0  | 0  | 0  | 1     |
+| PUT PS           | 1   | 0  | 0  | 0  | 1     |
+| DEL PS           | 1   | 0  | 0  | 0  | 1     |
+| GET MSS          | 1   | 0  | 1  | 0  | 2     |
+| ADD MSS          | 1   | 0  | 0  | 0  | 1     |
+| PUT MSS          | 1   | 0  | 0  | 0  | 1     |
+| DEL MSS          | 1   | 0  | 0  | 0  | 1     |
+| GET MS           | 1   | 0  | 0  | 0  | 1     |
+| ADD MS           | 1   | 0  | 0  | 0  | 1     |
+| PUT MS           | 1   | 0  | 0  | 0  | 1     |
+| DEL MS           | 1   | 0  | 0  | 0  | 1     |
+| Info partido     | 1   | 1  | 0  | 0  | 2     |
+| CRON             | 0   | 0  | 0  | 1  | 1     |
+| Total            | 19  | 2  | 1  | 1  | 23    |
+
+ 3. **Análisis por API**
+Se analizan el tipo de plan que se pretende obtener, así como el número máximo de llamadas por segundo y su precio fijo (precio variable no tenemos). 
+
+| API   | Req. max. | Plan        | Precio base | Req. Max. API |
+| ----- | --------- | ----------- | ----------- | ------------- |
+| SSO   | 19        | Free        | 0           | 10000         |
+| OW    | 2         | Profesional | 410         | 761           |
+| TW    | 1         | Standard    | 0           | 1000000       |
+| SG    | 1         | Essential   | 34,95       | 896           |
+| Total | 23        |             | 444,95      |               |
+
+ 4. **Crear supuestos**
+Se van a hacer suposiciones para cada plan acerca del número de peticiones máximos, precio y número de usuarios que van a usar la aplicación. Esto estará relacionado con el acuerdo de nivel de servicio.
+
+| Plan       | Req/max | Precio | Nº usuarios   | € total |
+| ---------- | ------- | ------ | ------------- | ------- |
+| Free       | 5       | 0      | 150           | 0       |
+| Premium    | 10      | 5      | 60            | 300     |
+| Enterprise | 50      | 25     | 20            | 500     |
+
+Además, para cada API se va a suponer un nivel de riesgo:
+
+| API | Riesgo |
+| --- | ------ |
+| SSO | 85%    |
+| OW  | 85%    |
+| TW  | 0%     |
+| SG  | 65%    |
+
+*Nota: se ha analizado el peor peor caso (se realizan todas las peticiones posibles a la vez por usuario), por lo que suponer un 85% de riesgo no implica ningún disparate.*
+
+ 5. **Determinar la capacidad máxima de usuarios por plan**
+Para los datos anteriores se extraerá el máximo número de usuarios posibles en caso de que solamente existiese ese plan.
+
+| API  | Free        | Premium     | Enterprise  |
+|------|-------------|-------------|-------------|
+| SSO  | 701,754386  | 350,877193  | 70,1754386  |
+| OW   | 507,3333333 | 253,6666667 | 50,73333333 |
+| TW   | 200000      | 100000      | 20000       |
+| SG   | 512         | 256         | 51,2        |
+| Mín. | 507         | 253         | 50          |
+
+*Nota: se ha usado el siguiente cálculo: 
+nº pet. máx. API / pet. a la API por pet. del usu. / (1- riesgo) / nº máx. pet. por plan usu.*
+
+ 6. **Estudio de viabilidad de los supuestos**
+En esta ocasión vamos a suponer al contrario, con el supuesto del número de usuarios se va a calcular el número máximo de peticiones que recibirá cada API.
+Tras el cálculo, podrá observarse que el número de peticiones total es inferior al máximo soportado por la API.
+
+| API   | Req. Free | Req. Premium | Req. Enterprise | Req. total |
+|-------|-----------|--------------|-----------------|------------|
+| SSO   | 2137,5    | 1710         | 2850            | 6697,5     |
+| OW    | 225       | 180          | 300             | 705        |
+| TW    | 750       | 600          | 1000            | 2350       |
+| SG    | 262,5     | 210          | 350             | 822,5      |
+| Total | 3375      | 2700         | 4500            | 10575      |
+
+*Nota: se ha usado el siguiente cálculo: 
+nº usuarios * pet. a la API por pet. del usu. * (1- riesgo) * nº máx. pet. por plan usu.*
+
+ 7. **Análisis de beneficios**
+Se determinará el beneficio tras el uso de los datos supuestos. Se calcula como la diferencia entre ingresos (multiplicación de número de usuarios y precio por cada uno) y gastos (coste de las 2 APIs que requieren pagos).
+*Ingresos = Beneficio - Gastos = 800 - 444,95 = **+355,05€***
+  
 
 ## Determinar coste por plan
 
 ## Cómputo de horas
+  
 
 ## Conclusiones
+
 
