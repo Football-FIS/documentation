@@ -270,9 +270,9 @@ En este punto vamos a dar una metrica que te permita saber cuanto nos cuesta las
 
 2. La suma de todos los request da el 100% de las peticiones. Haciendo regla de 3 con cada uno de los planes, se consigues saber el número total de peticiones máximas posibles.
 - Req totales: 2.350 Req  -> (100%)
---   Free: 750 Req / 2.350 Req x 100% = 32,2% de las peticiones totales
---   Premium: 600 Req / 2.350 Req x 100% = 25,5% de las peticiones totales
---   Enterprise: 1.000 Req / 2.350 Req x 100% = 42,3% de las peticiones totales
+- Free: 750 Req / 2.350 Req x 100% = 32,2% de las peticiones totales
+- Premium: 600 Req / 2.350 Req x 100% = 25,5% de las peticiones totales
+- Enterprise: 1.000 Req / 2.350 Req x 100% = 42,3% de las peticiones totales
 
 
 3. Al ya tener el máximo número de peticiones posibles y el máximo número de peticiones de cada plan, haciendo regla de tres con el coste del 100% de las request se puedes calcular el de cada plan. Y esto dividirlo entre el usuario.
