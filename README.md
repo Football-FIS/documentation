@@ -254,9 +254,61 @@ Se determinará el beneficio tras el uso de los datos supuestos. Se calcula como
 
 ## Determinar coste por plan
 
+En este punto vamos a dar una métrica que te permita saber cuanto nos cuesta las request por usuario en cada uno de los planes.
+
+| Plan       | Req/max | Precio | Nº usuarios   | € total |
+| ---------- | ------- | ------ | ------------- | ------- |
+| Free       | 5       | 0      | 150           | 0       |
+| Premium    | 10      | 5      | 60            | 300     |
+| Enterprise | 50      | 25     | 20            | 500     |
+
+
+1. Determinar el número de  peticiones totales por cada tipo de usuario.
+-   Free: 750 Req (5 x 150)
+-   Premium: 600 Req  (10 x 60)
+-   Enterprise: 1.000 Req  (50 x 20)
+
+2. La suma de todos los request da el 100% de las peticiones. Haciendo regla de 3 con cada uno de los planes, se consigues saber el número total de peticiones máximas posibles.
+- Req totales: 2.350 Req  -> (100%)
+- Free: 750 Req / 2.350 Req x 100% = 32,2% de las peticiones totales
+- Premium: 600 Req / 2.350 Req x 100% = 25,5% de las peticiones totales
+- Enterprise: 1.000 Req / 2.350 Req x 100% = 42,3% de las peticiones totales
+
+
+3. Al ya tener el máximo número de peticiones posibles y el máximo número de peticiones de cada plan, haciendo regla de tres con el coste del 100% de las request se puedes calcular el de cada plan. Y esto dividirlo entre el usuario.
+-   Free: 750 Req / 2.350 Req x 0 € = 0 €
+-   Premium: 600 Req / 2.350 Req x 300 € = 76,595 €
+-   Enterprise: 1.000 Req / 2.350 Req x 500 € = 213,829 €
+
+Entonces, para calcular el coste por usuario:
+-   Free: 0 € / 150 usuarios = 0 € por usuario
+-   Premium: 76,595 € / 60 usuarios = 1,27 € por usuario
+-   Enterprise: 213,829 € / 20 usuarios = 10,69 € por usuario
+
+Así con esta información podemos ver cuánto cuesta por usuario en cada plan.
+
+
 ## Cómputo de horas
-  
+<<<<<<< HEAD
+=======
 
+>>>>>>> feat-005-Costes
+
+El proyecto ha tardado un poco más de lo previsto debido a varios factores. En primer lugar, el desconocimiento del uso de algunas tecnologías como puede ser Django o Angular junto a otras herramientas. Además, se han producido errores imprevistos que han requerido tiempo adicional para resolverlos de forma efectiva. También ha habido problemas con el despliegue en Okteto. Sin embargo, a pesar de estos problemas, se ha logrado completar el proyecto con éxito dentro del plazo de entrega.
+
+*Nota: Esto es un informe resumido, para el informe completo consultar el Clockify_Tiempo_Detallado.pdf*
+
+![Cómputo de horas](images/Clockify_Resumen_Horas.png)
 ## Conclusiones
+<<<<<<< HEAD
 
+En conclusión, este proyecto ha sido una gran oportunidad para aprender y aplicar nuevas tecnologías en el desarrollo de una aplicación web. A lo largo del proceso, hemos aprendido a utilizar tecnologías como Django o Flask para el Backend, Angular junto a Tailwind para el Frontend, MongoDB como base de datos NoSQL y Github como gestor de código. Así como la utilización de otras herramientas relevantes y novedosas para algunos de nosotros como Makefile o ElectronJS.
 
+Hemos aprendido a desarrollar un microservicio desde cero, lo que ha permitido tener una arquitectura de microservicios en función del análisis previo en el mockup. Esto ha sido clave para poder dividir el proyecto en diferentes partes y poder trabajar de manera más eficiente y escalable.
+
+Además, hemos aprendido a trabajar en equipo, a comunicarnos de manera efectiva y a colaborar en un repositorio de código de manera ordenada y estructurada. También hemos aprendido a documentar todo el proceso para facilitar su comprensión. Posiblemente todas estas cosas, las acabaremos utilizando tarde o temprano en proyectos venideros.
+
+En general, este proyecto ha sido una gran oportunidad para ampliar nuestras habilidades en el desarrollo de aplicaciones web y para adquirir nuevos conocimientos en el ámbito de las tecnologías de la información. Sin duda, estos conocimientos y habilidades serán de gran utilidad en nuestra futura carrera profesional.
+
+=======
+>>>>>>> feat-005-Costes
