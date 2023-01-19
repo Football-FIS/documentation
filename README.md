@@ -255,8 +255,10 @@ Se determinará el beneficio tras el uso de los datos supuestos. Se calcula como
 ## Determinar coste por plan
 
 ## Cómputo de horas
-  
 
+El proyecto ha tardado un poco más de lo previsto debido a varios factores. En primer lugar, el desconocimiento del uso de algunas tecnologías como puede ser Django o Angular junto a otras herramientas. Además, se han producido errores imprevistos que han requerido tiempo adicional para resolverlas de forma efectiva. También ha habido problemas con el despliegue en Okteto. Sin embargo, a pesar de estos problemas, se ha logrado completar el proyecto con éxito dentro del plazo de entrega.
+
+![Cómputo de horas](images/Clockify_Resumen_Horas.png)
 ## Conclusiones
 
 
