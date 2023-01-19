@@ -254,6 +254,37 @@ Se determinará el beneficio tras el uso de los datos supuestos. Se calcula como
 
 ## Determinar coste por plan
 
+En este punto vamos a dar una metrica que te permita saber cuanto nos cuesta las request por usuario en cada uno de los planes.
+
+| Plan       | Req/max | Precio | Nº usuarios   | € total |
+| ---------- | ------- | ------ | ------------- | ------- |
+| Free       | 5       | 0      | 150           | 0       |
+| Premium    | 10      | 5      | 60            | 300     |
+| Enterprise | 50      | 25     | 20            | 500     |
+
+
+1. Determinar el número de  peticiones totales por cada tipo de usuario.
+-   Free: 750 Req (5 x 150)
+-   Premium: 600 Req  (10 x 60)
+-   Enterprise: 1.000 Req  (50 x 20)
+
+2. La suma de todos los request da el 100% de las peticiones. Haciendo regla de 3 con cada uno de los planes, se consigues saber el número total de peticiones máximas posibles.
+- Req totales: 2.350 Req  -> (100%)
+--   Free: 750 Req / 2.350 Req x 100% = 32,2% de las peticiones totales
+--   Premium: 600 Req / 2.350 Req x 100% = 25,5% de las peticiones totales
+--   Enterprise: 1.000 Req / 2.350 Req x 100% = 42,3% de las peticiones totales
+
+
+3. Al ya tener el máximo número de peticiones posibles y el máximo número de peticiones de cada plan, haciendo regla de tres con el coste del 100% de las request se puedes calcular el de cada plan. Y esto dividirlo entre el usuario.
+-   Free: 750 Req / 2.350 Req x 1.000 € = 322,16 €
+-   Premium: 600 Req / 2.350 Req x 1.000 € = 255,32 €
+-   Enterprise: 1.000 Req / 2.350 Req x 1.000 € = 423,26 €
+
+Entonces, para calcular el coste por usuario:
+-   Free: 322,16 € / 150 usuarios = 2,14 € por usuario
+-   Premium: 255,32 € / 60 usuarios = 4,26 € por usuario
+-   Enterprise: 423,26 € / 20 usuarios = 21,16 € por usuario
+
 ## Cómputo de horas
   
 
