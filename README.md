@@ -285,6 +285,9 @@ Entonces, para calcular el coste por usuario:
 -   Premium: 255,32 € / 60 usuarios = 4,26 € por usuario
 -   Enterprise: 423,26 € / 20 usuarios = 21,16 € por usuario
 
+Así con esta información podemos ver cuánto cuesta por usuario en cada plan.
+
+
 ## Cómputo de horas
   
 
