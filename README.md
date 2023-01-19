@@ -276,14 +276,14 @@ En este punto vamos a dar una metrica que te permita saber cuanto nos cuesta las
 
 
 3. Al ya tener el máximo número de peticiones posibles y el máximo número de peticiones de cada plan, haciendo regla de tres con el coste del 100% de las request se puedes calcular el de cada plan. Y esto dividirlo entre el usuario.
--   Free: 750 Req / 2.350 Req x 1.000 € = 322,16 €
--   Premium: 600 Req / 2.350 Req x 1.000 € = 255,32 €
--   Enterprise: 1.000 Req / 2.350 Req x 1.000 € = 423,26 €
+-   Free: 750 Req / 2.350 Req x 0 € = 0 €
+-   Premium: 600 Req / 2.350 Req x 300 € = 76,595 €
+-   Enterprise: 1.000 Req / 2.350 Req x 500 € = 213,829 €
 
 Entonces, para calcular el coste por usuario:
--   Free: 322,16 € / 150 usuarios = 2,14 € por usuario
--   Premium: 255,32 € / 60 usuarios = 4,26 € por usuario
--   Enterprise: 423,26 € / 20 usuarios = 21,16 € por usuario
+-   Free: 0 € / 150 usuarios = 0 € por usuario
+-   Premium: 76,595 € / 60 usuarios = 1,27 € por usuario
+-   Enterprise: 213,829 € / 20 usuarios = 10,69 € por usuario
 
 Así con esta información podemos ver cuánto cuesta por usuario en cada plan.
 
