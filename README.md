@@ -289,18 +289,14 @@ Así con esta información podemos ver cuánto cuesta por usuario en cada plan.
 
 
 ## Cómputo de horas
-<<<<<<< HEAD
-=======
-
->>>>>>> feat-005-Costes
 
 El proyecto ha tardado un poco más de lo previsto debido a varios factores. En primer lugar, el desconocimiento del uso de algunas tecnologías como puede ser Django o Angular junto a otras herramientas. Además, se han producido errores imprevistos que han requerido tiempo adicional para resolverlos de forma efectiva. También ha habido problemas con el despliegue en Okteto. Sin embargo, a pesar de estos problemas, se ha logrado completar el proyecto con éxito dentro del plazo de entrega.
 
 *Nota: Esto es un informe resumido, para el informe completo consultar el Clockify_Tiempo_Detallado.pdf*
 
 ![Cómputo de horas](images/Clockify_Resumen_Horas.png)
+
 ## Conclusiones
-<<<<<<< HEAD
 
 En conclusión, este proyecto ha sido una gran oportunidad para aprender y aplicar nuevas tecnologías en el desarrollo de una aplicación web. A lo largo del proceso, hemos aprendido a utilizar tecnologías como Django o Flask para el Backend, Angular junto a Tailwind para el Frontend, MongoDB como base de datos NoSQL y Github como gestor de código. Así como la utilización de otras herramientas relevantes y novedosas para algunos de nosotros como Makefile o ElectronJS.
 
@@ -309,6 +305,3 @@ Hemos aprendido a desarrollar un microservicio desde cero, lo que ha permitido t
 Además, hemos aprendido a trabajar en equipo, a comunicarnos de manera efectiva y a colaborar en un repositorio de código de manera ordenada y estructurada. También hemos aprendido a documentar todo el proceso para facilitar su comprensión. Posiblemente todas estas cosas, las acabaremos utilizando tarde o temprano en proyectos venideros.
 
 En general, este proyecto ha sido una gran oportunidad para ampliar nuestras habilidades en el desarrollo de aplicaciones web y para adquirir nuevos conocimientos en el ámbito de las tecnologías de la información. Sin duda, estos conocimientos y habilidades serán de gran utilidad en nuestra futura carrera profesional.
-
-=======
->>>>>>> feat-005-Costes
