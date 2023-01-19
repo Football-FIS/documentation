@@ -254,7 +254,7 @@ Se determinará el beneficio tras el uso de los datos supuestos. Se calcula como
 
 ## Determinar coste por plan
 
-En este punto vamos a dar una metrica que te permita saber cuanto nos cuesta las request por usuario en cada uno de los planes.
+En este punto vamos a dar una métrica que te permita saber cuanto nos cuesta las request por usuario en cada uno de los planes.
 
 | Plan       | Req/max | Precio | Nº usuarios   | € total |
 | ---------- | ------- | ------ | ------------- | ------- |
@@ -289,8 +289,6 @@ Así con esta información podemos ver cuánto cuesta por usuario en cada plan.
 
 
 ## Cómputo de horas
-  
+
 
 ## Conclusiones
-
-
