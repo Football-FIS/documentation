@@ -56,7 +56,7 @@ Dentro del README del proyecto (https://github.com/Football-FIS/team-service/blo
 ### Player
 Representa la entidad que gestiona los jugadores. Además, permitirá el envío de correos electrónicos informativos del partido a los jugadores a modo de recordatorio.
  - **Documentación**: https://github.com/Football-FIS/player-service
- - **API Rest**:
+ - **API Rest**: https://player-service-danaremar.cloud.okteto.net/apidocs/
 
 ### Match
 Representa la entidad que gestiona los partidos asociados a un equipo. Permite entre otras cosas la inicialización del envío de correos a los jugadores.
